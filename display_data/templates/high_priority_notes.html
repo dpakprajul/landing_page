@@ -1,0 +1,181 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+
+<div class="container mt-5">
+    <ul class="list-group">
+        {% for note in high_priority_notes %}
+            <li class="list-group-item">
+                <h5 class="mb-2">{{ note.title }}
+                    {% if note.priority == "High" %}
+                        <span class="text-danger">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </span>
+                    {% endif %}
+                </h5>
+                
+                <p class="mb-1">Priority: {{ note.priority }}</p>
+                
+                <!-- Limit text to 100 words and provide a link for longer text -->
+                {% if note.text|wordcount <= 30 %}
+                    <p class="mb-1">Text: {{ note.text }}</p>
+                {% else %}
+                    <p class="mb-1">Text: {{ note.text|truncatewords:100 }}
+                        <a href="{% url 'notes.detail' pk=note.pk %}" class="text-primary">Read more</a>
+                    </p>
+                {% endif %}
+            </li>
+        {% empty %}
+           
+        {% endfor %}
+    </ul>
+</div>
+
+
+
+
+<style>
+    .custom-light-green-bg {
+        background-color: #0b8e78; /* You can adjust the color code to your preferred shade of light green */
+    }
+</style>
+
+
+<!-- less important -->
+
+<div class="container mt-5">
+    <div class="card custom-light-green-bg">
+        <div class="card-body">
+            <h5 class="card-title font-weight-bold display-4 text-white">Herzlich willkommen im Geoportal Hessen</h5>
+            <p class="card-text lead text-white">
+                Hier erhalten Sie einen einheitlichen Zugang zu den raumbezogenen Daten der Geodateninfrastruktur Hessen (GDI-HE).
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <!-- Big Card with Padding -->
+    <div class="card custom-light-green-bg mb-5 p-4">
+        <div class="card-body">
+            <h5 class="card-title font-weight-bold display-6 text-white">Sie suchen Geodaten?</h5>
+            <p class="card-text lead text-white">
+                Hier erhalten Sie einen Vorsprung bei Ihrer Suche.
+                Starten Sie jetzt eine bereits gefilterte Suche durch die Auswahl einer der Kacheln.
+            </p>
+        </div>
+        <div class="row">
+            <!-- Square Card Group -->
+            <div class="col-md-4 mb-4">
+                <a href="https://www.geoportal.hessen.de/search/" class="text-decoration-none">
+                    <div class="card custom-square-card">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-map"></i> Karten</h5>
+                            <p class="card-text">71</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <a href="https://www.geoportal.hessen.de/search/" class="text-decoration-none">
+                <div class="card custom-square-card">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-layer-group"></i> Kartenebenen</h5>
+                        <p class="card-text">13.268</p>
+                    </div>
+                </div>
+            </a>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card custom-square-card">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-database"></i> Datensätze</h5>
+                        <p class="card-text">573</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <a href="https://www.geoportal.hessen.de/organizations/" class="text-decoration-none">
+                <div class="card custom-square-card">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-building"></i> Organisationen</h5>
+                        <p class="card-text">172</p>
+                    </div>
+                </div>
+            </a>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card custom-square-card">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-laptop"></i> Anwendungen</h5>
+                        <p class="card-text">23</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card custom-square-card">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-tag"></i> Kategorien und Themen</h5>
+                        <p class="card-text">40</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Separate Card for "Häufig gestartete Karten" -->
+<div class="card mb-4">
+    <div class="card-body">
+        <h5 class="card-title">Häufig gestartete Karten</h5>
+        <p class="card-text">
+            Hier starten Sie unsere Kartenanwendung mit bereits ausgewählten Kartenebenen.
+            Sie können im Anschluss Kartenebenen aus- oder einschalten und weitere Kartenebenen hinzuladen.
+        </p>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card custom-square-card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-random"></i> BORIS Hessen 2022
+                        </h5>
+                        <p class="card-text">Vorschau der Kartenzusammenstellung BORIS Hessen 2022</p>
+                        <p class="card-text"><i class="fas fa-eye"></i>19.013</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card custom-square-card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-random"></i> Liegenschaftskarte Hessen voreingestellt
+                        </h5>
+                        <p class="card-text">Vorschau der Kartenzusammenstellung Liegenschaftskarte Hessen voreingestellt</p>
+                        <p class="card-text"><i class="fas fa-eye"></i>7.526</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card custom-square-card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-random"></i> BORIS Hessen 2020
+                        </h5>
+                        <p class="card-text">Vorschau der Kartenzusammenstellung BORIS Hessen 2020</p>
+                        <p class="card-text"><i class="fas fa-eye"></i>1.036</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

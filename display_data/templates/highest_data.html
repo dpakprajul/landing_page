@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h1 style="color: #059090;">Geoportal Meldungen</h1>
+    {{lorem_ipsum_content}} 
+    {% for item in extracted_data %}
+        {% if item.number == 1000 %}
+        <div class="card mt-3">
+            <div class="card-header" style="background-color: #059090; color: white;">
+                <h5 class="card-title">{{ item.title }}</h5>
+            </div>
+            <div class="card-body">
+                <a href="{% url 'notes.detail' pk=item.id %}" class="text-decoration-none">
+                    <p class="card-text">Created Date: {{ item.created }}</p>
+                    <p class="card-text">Text: {{ item.text }}</p>
+                    <p class="card-text">Number: <span class="text-danger">{{ item.number }}</span></p>
+                </a>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+    
+    <div class="mt-4">
+        <p>
+            {% for item in filtered_data %}
+                {% if item.number != 1000 %}
+                   {{lorem_ipsum_content}} 
+                {% endif %}
+            {% endfor %}
+        </p>
+        <!-- Add more content as needed -->
+    </div>
+</div>
+
+<script>
+    function removeOldData() {
+        const cards = document.querySelectorAll('.card');
+        const currentTime = Math.floor(Date.now() / 1000); // Current timestamp in seconds
+
+        for (let i = cards.length - 1; i >= 0; i--) {
+            const card = cards[i];
+            const timestamp = parseInt(card.getAttribute('data-timestamp'), 10);
+            if (isNaN(timestamp) || (currentTime - timestamp) >= 300) {
+                setTimeout(function() {
+                    card.remove(); // Remove the card if older than 30 seconds
+                }, 50000 * (cards.length - i)); // Delay each removal by 30 seconds
+            }
+        }
+    }
+
+    // Call the removeOldData function every second
+    setInterval(removeOldData, 1000);
+</script>
+
+<form method="POST" action="{% url 'notes.new' %}">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="btn btn-primary my-3" style="background-color: #059090; border-color: #059090;">Create a new note</button>
+
+</form>
+{% endblock %}

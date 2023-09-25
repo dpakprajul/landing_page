@@ -1,0 +1,44 @@
+ul.errorlist{
+    display: none;
+
+} 
+
+/* Add your custom CSS styles here */
+.news-container {
+    margin-top: 20px;
+}
+.news-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+.news-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+.news-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+.news-description {
+    margin-top: 10px;
+    font-size: 16px;
+}
+.news-meta {
+    font-size: 14px;
+    color: #777;
+}
+.read-more {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+.news-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.custom-light-green-bg {
+    background-color: #DFF0D8; /* You can adjust the color code to your preferred shade of light green */
+}

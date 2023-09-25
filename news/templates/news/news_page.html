@@ -1,0 +1,29 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+
+
+
+    <div class="container news-container">
+        <h1 class="text-center">Latest News</h1>
+        <div class="row">
+            {% for article in tagesspiegel_articles %}
+            <div class="col-md-6">
+                <div class="news-item">
+                    <h2 class="news-title {% if article.author == 'tagesschau.de' %}tagesschau{% endif %}">{{ article.title }}</h2>
+                    
+                    <img src="https://www.gdi-de.org/download/2023-08/bg_gb_denkmalkarte_bremen.jpg" alt="{{ article.title }}" class="news-image">
+                   
+                    <p class="news-description">{{ article.description }}</p>
+                    <p class="news-meta">Author: {{ article.author }}</p>
+                    <p class="news-meta">Published At: {{ article.publishedAt }}</p>
+                    <p class="news-meta">Source: {{ article.source.name }}</p>
+                    <a class="read-more" href="{{ article.url }}" target="_blank">Read more</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+

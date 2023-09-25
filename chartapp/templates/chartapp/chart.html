@@ -1,0 +1,58 @@
+<!-- chartapp/templates/chartapp/chart.html -->
+{% extends "base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Chart Page</title>
+    <!-- Include ECharts library -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.1.0/dist/echarts.min.js"></script>
+</head>
+<body>
+    <div id="chart" style="width: 800px; height: 400px;"></div>
+
+    <script>
+        // JavaScript code to initialize and render the chart
+       
+        var data = {{ data|safe }};  // Assuming 'data' is the data passed from the view
+
+var chart = echarts.init(document.getElementById('chart'));
+
+        var options = {
+            title: {
+                text: 'Data Chart',
+                left: 'center'
+            },
+            xAxis: {
+                type: 'category',
+                data: data.map(item => item.title)  // Assuming 'title' is the x-axis data
+            },
+            yAxis: {
+                type: 'value'
+            },
+            
+            tooltip: {
+        show: true, // Enable tooltips
+        trigger: 'axis', // Trigger on data points along the x-axis
+        formatter: function(params) {
+            var dataIndex = params[0].dataIndex; // Get the index of the hovered data point
+            var title = data[dataIndex].title; // Access 'title' based on the index
+            var number = data[dataIndex].number; // Access 'number' based on the index
+            return `Title: ${title}<br>Number: ${number}`;
+        },
+    },
+
+            series: [{
+                data: data.map(item => item.number),  // Assuming 'number' is the y-axis data
+                type: 'line'
+            }]
+        };
+
+        chart.setOption(options);
+    </script>
+</body>
+</html>
+
+{% endblock %}
