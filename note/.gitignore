@@ -1,0 +1,14 @@
+venv/
+.venv/
+
+# Ignore database files
+*.sqlite3
+*.database
+
+#Ignore log files
+*.log
+
+#Ignore configuration files
+.config/
+.vscode/
+
