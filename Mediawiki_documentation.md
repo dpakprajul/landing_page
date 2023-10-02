@@ -79,10 +79,13 @@ In the edited news articles, you've applied custom CSS to ensure that images do 
 </div>
 ```
 The following problem will be solved: 
-![grafik](https://github.com/dpakprajul/landing_page/assets/38970123/f84a900d-27f6-4bcc-b8c8-33d7d645ef80)
+![grafik](https://github.com/dpakprajul/landing_page/assets/38970123/d4d98389-be60-463c-b2bb-17b35288d45d)
+
+
 By introducing a new div with "display:block;" style, this problem is solved!
 
-![grafik](https://github.com/dpakprajul/landing_page/assets/38970123/69455274-8313-43b3-91e0-0e58dd651fd8)
+![grafik](https://github.com/dpakprajul/landing_page/assets/38970123/b3fee446-0ea0-489d-a688-0415376c6365)
+
 
 ### What If It's Not a topNews Article?
 
@@ -109,7 +112,8 @@ You can add various types of text and content within the `topNews` template to p
 ```
 
 The result looks like: 
-![grafik](https://github.com/dpakprajul/landing_page/assets/38970123/513b759d-5910-41e3-97a5-0982a3b7c95b)
+![grafik](https://github.com/dpakprajul/landing_page/assets/38970123/481b1e5c-9b45-4cea-8e96-8493b3368d92)
+
 
 If you have any questions and problems regarding the template and page editing, please write me an email: [Deepak.Parajuli@hvbg.hessen.de]
 
