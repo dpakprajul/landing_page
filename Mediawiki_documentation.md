@@ -61,12 +61,16 @@ You can use the `topNews` template to create news articles (Meldungen) in MediaW
 {{topNews
 |title = GDI-DE Newsletter 10/2023 
 |date = 02.10.2023
-|durationDays = 5
+|durationDays =5
 |teaser = Der GDI-DE Newsletter Oktober 2023
-|articleBody = This is where you would insert the main content of your news article. You can provide a detailed description, updates, or any relevant information related to your news.
+|articleBody = Die Koordinierungsstelle GDI-DE möchte mit ihrem Newsletter über die aktuellen Entwicklungen in der GDI-DE unterrichten. Der GDI-DE Newsletter erscheint seit 2006 in regelmäßigen Abständen und informiert kurz und bündig über allen aktuellen Themen.
+<div class="custom-link" style="display: block; margin: 0; padding: 0;">
+  [[Datei:GDI_DE_LOGO.PNG|link=https://{{SERVERNAME}}/mediawiki/images/3/3d/GDI_DE_LOGO.PNG|rahmenlos|300px]]
+</div>
 |link = https://www.gdi-de.org/Service/Aktuelles/gdi-de-news-oktober-2023
 |text = GDI Newsletter 10/2023
-}}
+}} 
+
 ```
 
 ### Custom CSS Usage
@@ -99,16 +103,19 @@ You can add various types of text and content within the `topNews` template to p
 {{topNews
 |title = GDI-DE Newsletter 10/2023 
 |date = 02.10.2023
-|durationDays = 5
+|durationDays =5
 |teaser = Der GDI-DE Newsletter Oktober 2023
-|articleBody = 
+|articleBody = Die Koordinierungsstelle GDI-DE möchte mit ihrem Newsletter über die aktuellen Entwicklungen in der GDI-DE unterrichten. Der GDI-DE Newsletter erscheint seit 2006 in regelmäßigen Abständen und informiert kurz und bündig über allen aktuellen Themen.
+<div class="custom-link" style="display: block; margin: 0; padding: 0;">
+  [[Datei:GDI_DE_LOGO.PNG|link=https://{{SERVERNAME}}/mediawiki/images/3/3d/GDI_DE_LOGO.PNG|rahmenlos|300px]]
+</div>
 * Die Datenbasis ist tagesaktuell (ATKIS® Basis-DLM Daten).
 * Die Prozessierung der Karte erfolgt automatisiert und täglich.
 * Die Gestaltung und der Inhalt der Karte orientieren sich an den Karten aus dem Saarland und Rheinland Pfalz.
 * Die Prozessierung und Bereitstellung erfolgt vollständig mit OpenSource Software (PostNAS Projekt).
 |link = https://www.gdi-de.org/Service/Aktuelles/gdi-de-news-oktober-2023
 |text = GDI Newsletter 10/2023
-}}
+}} 
 ```
 
 The result looks like: 
