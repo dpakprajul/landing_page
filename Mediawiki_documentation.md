@@ -32,6 +32,24 @@ Here's the structure of the `topNews` template:
 </div>
 ```
 This template could be searched in our mediawiki using: `Vorlage:topNews`
+The `<hr>` part could be removed and instead of using `<hr>` in the template, `----` could be used between the News. 
+```plaintext
+{{topNews
+|title = GDI-DE Newsletter 10/2023 
+...
+...
+}}
+
+`----`
+
+{{topNews
+|title = Wartungsarbeiten Geobasisdaten wichtig
+...
+...
+}}
+
+`----`
+```
 
 ### 2. Parameters
 
