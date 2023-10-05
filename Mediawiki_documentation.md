@@ -16,8 +16,8 @@ Here's the structure of the `topNews` template:
 
 ```html
 <div class="topNews">
-  <h2>{{{title|}}}</h2>
-  <span><strong>{{{date|}}}</strong></span>
+  <h2 class="topNewsTitle">{{{title|}}}</h2>
+  <span class="topNewsDate"><strong>{{{date|}}}</strong></span>
   <span class="hiddenDuration" style="display:none;">{{{durationDays|}}}</span>
   <p class="teaser">{{{teaser|}}}</p>
   <p class="articleBody">{{{articleBody|}}}</p>
