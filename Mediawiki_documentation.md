@@ -40,7 +40,7 @@ The `<hr>` part could be removed and instead of using `<hr>` in the template, `-
 ...
 }}
 
-`----`
+----
 
 {{topNews
 |title = Wartungsarbeiten Geobasisdaten wichtig
@@ -48,7 +48,7 @@ The `<hr>` part could be removed and instead of using `<hr>` in the template, `-
 ...
 }}
 
-`----`
+----
 ```
 
 ### 2. Parameters
@@ -135,6 +135,13 @@ You can add various types of text and content within the `topNews` template to p
 |text = GDI Newsletter 10/2023
 }} 
 ```
+### What if the author forgot to write the date, title or any other part?
+An approach to create an extention for the validation was done on mediawiki page but the attempt was unsuccessful.
+For the topNews to be in priority, the created date and the duration is of prime importance. If the current date is not given, the function cannot run and results error, hence was blocked with Exception error and handled it accordingly. 
+
+#### TODO
+Create an extension for the validation in mediawiki page. (Using php and making change in LocalSettings.php and adding a new extensions called Validation inside the folder extentions. The extensions will be usually inside usr/share/mediawiki/extensions/Validation
+Created a extension.json and Validation.php inside it but have to work further to make it run. The script I had used is in Issues in this repo.
 
 The result looks like: 
 ![grafik](https://github.com/dpakprajul/landing_page/assets/38970123/481b1e5c-9b45-4cea-8e96-8493b3368d92)
